@@ -1,0 +1,67 @@
+module puf_16bit (
+    input             clk,
+    input             rst,
+    input             enable,
+    output reg [15:0] puf_id,
+    output reg        puf_valid
+);
+    reg [3:0] bit_idx;
+    reg       bit_enable;
+    reg       bit_rst;
+    wire      bit_out;
+    wire      bit_valid;
+
+    ro_puf_bit PUF_BIT (
+        .clk    (clk),
+        .rst    (bit_rst),
+        .enable (bit_enable),
+        .puf_bit(bit_out),
+        .valid  (bit_valid)
+    );
+
+    reg [1:0] state;
+    localparam IDLE=0, RUN=1, STORE=2, DONE=3;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            bit_idx    <= 0;
+            bit_enable <= 0;
+            bit_rst    <= 1;
+            puf_id     <= 0;
+            puf_valid  <= 0;
+            state      <= IDLE;
+        end else begin
+            case (state)
+                IDLE: begin
+                    if (enable) begin
+                        bit_rst   <= 0;
+                        bit_enable<= 1;
+                        state     <= RUN;
+                    end
+                end
+                RUN: begin
+                    if (bit_valid) begin
+                        puf_id[bit_idx] <= bit_out;
+                        bit_enable      <= 0;
+                        bit_rst         <= 1;
+                        state           <= STORE;
+                    end
+                end
+                STORE: begin
+                    bit_rst <= 0;
+                    if (bit_idx == 4'd15) begin
+                        puf_valid <= 1;
+                        state     <= DONE;
+                    end else begin
+                        bit_idx    <= bit_idx + 1;
+                        bit_enable <= 1;
+                        state      <= RUN;
+                    end
+                end
+                DONE: begin
+                    // stay here, puf_valid stays high
+                end
+            endcase
+        end
+    end
+endmodule

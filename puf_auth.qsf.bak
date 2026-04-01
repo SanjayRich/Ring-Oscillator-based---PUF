@@ -1,0 +1,221 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 00:44:49  April 01, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		puf_auth_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY auth_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:44:49  APRIL 01, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name VERILOG_FILE ring_osc.v
+set_global_assignment -name VERILOG_FILE ro_puf_bit.v
+set_global_assignment -name VERILOG_FILE puf_16bit.v
+set_global_assignment -name VERILOG_FILE hex_decoder.v
+set_global_assignment -name VERILOG_FILE lcd_controller.v
+set_global_assignment -name VERILOG_FILE auth_top.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name TCL_SCRIPT_FILE ro_placement.tcl
+set_location_assignment LCCOMB_X10_Y50_N0 -to PUF_GEN|BIT[0]|inst|n0a
+set_location_assignment LCCOMB_X10_Y50_N1 -to PUF_GEN|BIT[0]|inst|n1a
+set_location_assignment LCCOMB_X10_Y50_N2 -to PUF_GEN|BIT[0]|inst|n2a
+set_location_assignment LCCOMB_X10_Y50_N3 -to PUF_GEN|BIT[0]|inst|n3a
+set_location_assignment LCCOMB_X10_Y50_N4 -to PUF_GEN|BIT[0]|inst|n4a
+set_location_assignment LCCOMB_X10_Y50_N5 -to PUF_GEN|BIT[0]|inst|n0b
+set_location_assignment LCCOMB_X10_Y50_N6 -to PUF_GEN|BIT[0]|inst|n1b
+set_location_assignment LCCOMB_X10_Y50_N7 -to PUF_GEN|BIT[0]|inst|n2b
+set_location_assignment LCCOMB_X10_Y50_N8 -to PUF_GEN|BIT[0]|inst|n3b
+set_location_assignment LCCOMB_X10_Y50_N9 -to PUF_GEN|BIT[0]|inst|n4b
+set_location_assignment LCCOMB_X15_Y45_N0 -to PUF_GEN|BIT[1]|inst|n0a
+set_location_assignment LCCOMB_X15_Y45_N1 -to PUF_GEN|BIT[1]|inst|n1a
+set_location_assignment LCCOMB_X15_Y45_N2 -to PUF_GEN|BIT[1]|inst|n2a
+set_location_assignment LCCOMB_X15_Y45_N3 -to PUF_GEN|BIT[1]|inst|n3a
+set_location_assignment LCCOMB_X15_Y45_N4 -to PUF_GEN|BIT[1]|inst|n4a
+set_location_assignment LCCOMB_X15_Y45_N5 -to PUF_GEN|BIT[1]|inst|n0b
+set_location_assignment LCCOMB_X15_Y45_N6 -to PUF_GEN|BIT[1]|inst|n1b
+set_location_assignment LCCOMB_X15_Y45_N7 -to PUF_GEN|BIT[1]|inst|n2b
+set_location_assignment LCCOMB_X15_Y45_N8 -to PUF_GEN|BIT[1]|inst|n3b
+set_location_assignment LCCOMB_X15_Y45_N9 -to PUF_GEN|BIT[1]|inst|n4b
+set_location_assignment LCCOMB_X20_Y40_N0 -to PUF_GEN|BIT[2]|inst|n0a
+set_location_assignment LCCOMB_X20_Y40_N1 -to PUF_GEN|BIT[2]|inst|n1a
+set_location_assignment LCCOMB_X20_Y40_N2 -to PUF_GEN|BIT[2]|inst|n2a
+set_location_assignment LCCOMB_X20_Y40_N3 -to PUF_GEN|BIT[2]|inst|n3a
+set_location_assignment LCCOMB_X20_Y40_N4 -to PUF_GEN|BIT[2]|inst|n4a
+set_location_assignment LCCOMB_X20_Y40_N5 -to PUF_GEN|BIT[2]|inst|n0b
+set_location_assignment LCCOMB_X20_Y40_N6 -to PUF_GEN|BIT[2]|inst|n1b
+set_location_assignment LCCOMB_X20_Y40_N7 -to PUF_GEN|BIT[2]|inst|n2b
+set_location_assignment LCCOMB_X20_Y40_N8 -to PUF_GEN|BIT[2]|inst|n3b
+set_location_assignment LCCOMB_X20_Y40_N9 -to PUF_GEN|BIT[2]|inst|n4b
+set_location_assignment LCCOMB_X25_Y50_N0 -to PUF_GEN|BIT[3]|inst|n0a
+set_location_assignment LCCOMB_X25_Y50_N1 -to PUF_GEN|BIT[3]|inst|n1a
+set_location_assignment LCCOMB_X25_Y50_N2 -to PUF_GEN|BIT[3]|inst|n2a
+set_location_assignment LCCOMB_X25_Y50_N3 -to PUF_GEN|BIT[3]|inst|n3a
+set_location_assignment LCCOMB_X25_Y50_N4 -to PUF_GEN|BIT[3]|inst|n4a
+set_location_assignment LCCOMB_X25_Y50_N5 -to PUF_GEN|BIT[3]|inst|n0b
+set_location_assignment LCCOMB_X25_Y50_N6 -to PUF_GEN|BIT[3]|inst|n1b
+set_location_assignment LCCOMB_X25_Y50_N7 -to PUF_GEN|BIT[3]|inst|n2b
+set_location_assignment LCCOMB_X25_Y50_N8 -to PUF_GEN|BIT[3]|inst|n3b
+set_location_assignment LCCOMB_X25_Y50_N9 -to PUF_GEN|BIT[3]|inst|n4b
+set_location_assignment LCCOMB_X30_Y45_N0 -to PUF_GEN|BIT[4]|inst|n0a
+set_location_assignment LCCOMB_X30_Y45_N1 -to PUF_GEN|BIT[4]|inst|n1a
+set_location_assignment LCCOMB_X30_Y45_N2 -to PUF_GEN|BIT[4]|inst|n2a
+set_location_assignment LCCOMB_X30_Y45_N3 -to PUF_GEN|BIT[4]|inst|n3a
+set_location_assignment LCCOMB_X30_Y45_N4 -to PUF_GEN|BIT[4]|inst|n4a
+set_location_assignment LCCOMB_X30_Y45_N5 -to PUF_GEN|BIT[4]|inst|n0b
+set_location_assignment LCCOMB_X30_Y45_N6 -to PUF_GEN|BIT[4]|inst|n1b
+set_location_assignment LCCOMB_X30_Y45_N7 -to PUF_GEN|BIT[4]|inst|n2b
+set_location_assignment LCCOMB_X30_Y45_N8 -to PUF_GEN|BIT[4]|inst|n3b
+set_location_assignment LCCOMB_X30_Y45_N9 -to PUF_GEN|BIT[4]|inst|n4b
+set_location_assignment LCCOMB_X35_Y40_N0 -to PUF_GEN|BIT[5]|inst|n0a
+set_location_assignment LCCOMB_X35_Y40_N1 -to PUF_GEN|BIT[5]|inst|n1a
+set_location_assignment LCCOMB_X35_Y40_N2 -to PUF_GEN|BIT[5]|inst|n2a
+set_location_assignment LCCOMB_X35_Y40_N3 -to PUF_GEN|BIT[5]|inst|n3a
+set_location_assignment LCCOMB_X35_Y40_N4 -to PUF_GEN|BIT[5]|inst|n4a
+set_location_assignment LCCOMB_X35_Y40_N5 -to PUF_GEN|BIT[5]|inst|n0b
+set_location_assignment LCCOMB_X35_Y40_N6 -to PUF_GEN|BIT[5]|inst|n1b
+set_location_assignment LCCOMB_X35_Y40_N7 -to PUF_GEN|BIT[5]|inst|n2b
+set_location_assignment LCCOMB_X35_Y40_N8 -to PUF_GEN|BIT[5]|inst|n3b
+set_location_assignment LCCOMB_X35_Y40_N9 -to PUF_GEN|BIT[5]|inst|n4b
+set_location_assignment LCCOMB_X40_Y50_N0 -to PUF_GEN|BIT[6]|inst|n0a
+set_location_assignment LCCOMB_X40_Y50_N1 -to PUF_GEN|BIT[6]|inst|n1a
+set_location_assignment LCCOMB_X40_Y50_N2 -to PUF_GEN|BIT[6]|inst|n2a
+set_location_assignment LCCOMB_X40_Y50_N3 -to PUF_GEN|BIT[6]|inst|n3a
+set_location_assignment LCCOMB_X40_Y50_N4 -to PUF_GEN|BIT[6]|inst|n4a
+set_location_assignment LCCOMB_X40_Y50_N5 -to PUF_GEN|BIT[6]|inst|n0b
+set_location_assignment LCCOMB_X40_Y50_N6 -to PUF_GEN|BIT[6]|inst|n1b
+set_location_assignment LCCOMB_X40_Y50_N7 -to PUF_GEN|BIT[6]|inst|n2b
+set_location_assignment LCCOMB_X40_Y50_N8 -to PUF_GEN|BIT[6]|inst|n3b
+set_location_assignment LCCOMB_X40_Y50_N9 -to PUF_GEN|BIT[6]|inst|n4b
+set_location_assignment LCCOMB_X45_Y45_N0 -to PUF_GEN|BIT[7]|inst|n0a
+set_location_assignment LCCOMB_X45_Y45_N1 -to PUF_GEN|BIT[7]|inst|n1a
+set_location_assignment LCCOMB_X45_Y45_N2 -to PUF_GEN|BIT[7]|inst|n2a
+set_location_assignment LCCOMB_X45_Y45_N3 -to PUF_GEN|BIT[7]|inst|n3a
+set_location_assignment LCCOMB_X45_Y45_N4 -to PUF_GEN|BIT[7]|inst|n4a
+set_location_assignment LCCOMB_X45_Y45_N5 -to PUF_GEN|BIT[7]|inst|n0b
+set_location_assignment LCCOMB_X45_Y45_N6 -to PUF_GEN|BIT[7]|inst|n1b
+set_location_assignment LCCOMB_X45_Y45_N7 -to PUF_GEN|BIT[7]|inst|n2b
+set_location_assignment LCCOMB_X45_Y45_N8 -to PUF_GEN|BIT[7]|inst|n3b
+set_location_assignment LCCOMB_X45_Y45_N9 -to PUF_GEN|BIT[7]|inst|n4b
+set_location_assignment LCCOMB_X10_Y30_N0 -to PUF_GEN|BIT[8]|inst|n0a
+set_location_assignment LCCOMB_X10_Y30_N1 -to PUF_GEN|BIT[8]|inst|n1a
+set_location_assignment LCCOMB_X10_Y30_N2 -to PUF_GEN|BIT[8]|inst|n2a
+set_location_assignment LCCOMB_X10_Y30_N3 -to PUF_GEN|BIT[8]|inst|n3a
+set_location_assignment LCCOMB_X10_Y30_N4 -to PUF_GEN|BIT[8]|inst|n4a
+set_location_assignment LCCOMB_X10_Y30_N5 -to PUF_GEN|BIT[8]|inst|n0b
+set_location_assignment LCCOMB_X10_Y30_N6 -to PUF_GEN|BIT[8]|inst|n1b
+set_location_assignment LCCOMB_X10_Y30_N7 -to PUF_GEN|BIT[8]|inst|n2b
+set_location_assignment LCCOMB_X10_Y30_N8 -to PUF_GEN|BIT[8]|inst|n3b
+set_location_assignment LCCOMB_X10_Y30_N9 -to PUF_GEN|BIT[8]|inst|n4b
+set_location_assignment LCCOMB_X15_Y25_N0 -to PUF_GEN|BIT[9]|inst|n0a
+set_location_assignment LCCOMB_X15_Y25_N1 -to PUF_GEN|BIT[9]|inst|n1a
+set_location_assignment LCCOMB_X15_Y25_N2 -to PUF_GEN|BIT[9]|inst|n2a
+set_location_assignment LCCOMB_X15_Y25_N3 -to PUF_GEN|BIT[9]|inst|n3a
+set_location_assignment LCCOMB_X15_Y25_N4 -to PUF_GEN|BIT[9]|inst|n4a
+set_location_assignment LCCOMB_X15_Y25_N5 -to PUF_GEN|BIT[9]|inst|n0b
+set_location_assignment LCCOMB_X15_Y25_N6 -to PUF_GEN|BIT[9]|inst|n1b
+set_location_assignment LCCOMB_X15_Y25_N7 -to PUF_GEN|BIT[9]|inst|n2b
+set_location_assignment LCCOMB_X15_Y25_N8 -to PUF_GEN|BIT[9]|inst|n3b
+set_location_assignment LCCOMB_X15_Y25_N9 -to PUF_GEN|BIT[9]|inst|n4b
+set_location_assignment LCCOMB_X20_Y30_N0 -to PUF_GEN|BIT[10]|inst|n0a
+set_location_assignment LCCOMB_X20_Y30_N1 -to PUF_GEN|BIT[10]|inst|n1a
+set_location_assignment LCCOMB_X20_Y30_N2 -to PUF_GEN|BIT[10]|inst|n2a
+set_location_assignment LCCOMB_X20_Y30_N3 -to PUF_GEN|BIT[10]|inst|n3a
+set_location_assignment LCCOMB_X20_Y30_N4 -to PUF_GEN|BIT[10]|inst|n4a
+set_location_assignment LCCOMB_X20_Y30_N5 -to PUF_GEN|BIT[10]|inst|n0b
+set_location_assignment LCCOMB_X20_Y30_N6 -to PUF_GEN|BIT[10]|inst|n1b
+set_location_assignment LCCOMB_X20_Y30_N7 -to PUF_GEN|BIT[10]|inst|n2b
+set_location_assignment LCCOMB_X20_Y30_N8 -to PUF_GEN|BIT[10]|inst|n3b
+set_location_assignment LCCOMB_X20_Y30_N9 -to PUF_GEN|BIT[10]|inst|n4b
+set_location_assignment LCCOMB_X25_Y25_N0 -to PUF_GEN|BIT[11]|inst|n0a
+set_location_assignment LCCOMB_X25_Y25_N1 -to PUF_GEN|BIT[11]|inst|n1a
+set_location_assignment LCCOMB_X25_Y25_N2 -to PUF_GEN|BIT[11]|inst|n2a
+set_location_assignment LCCOMB_X25_Y25_N3 -to PUF_GEN|BIT[11]|inst|n3a
+set_location_assignment LCCOMB_X25_Y25_N4 -to PUF_GEN|BIT[11]|inst|n4a
+set_location_assignment LCCOMB_X25_Y25_N5 -to PUF_GEN|BIT[11]|inst|n0b
+set_location_assignment LCCOMB_X25_Y25_N6 -to PUF_GEN|BIT[11]|inst|n1b
+set_location_assignment LCCOMB_X25_Y25_N7 -to PUF_GEN|BIT[11]|inst|n2b
+set_location_assignment LCCOMB_X25_Y25_N8 -to PUF_GEN|BIT[11]|inst|n3b
+set_location_assignment LCCOMB_X25_Y25_N9 -to PUF_GEN|BIT[11]|inst|n4b
+set_location_assignment LCCOMB_X30_Y30_N0 -to PUF_GEN|BIT[12]|inst|n0a
+set_location_assignment LCCOMB_X30_Y30_N1 -to PUF_GEN|BIT[12]|inst|n1a
+set_location_assignment LCCOMB_X30_Y30_N2 -to PUF_GEN|BIT[12]|inst|n2a
+set_location_assignment LCCOMB_X30_Y30_N3 -to PUF_GEN|BIT[12]|inst|n3a
+set_location_assignment LCCOMB_X30_Y30_N4 -to PUF_GEN|BIT[12]|inst|n4a
+set_location_assignment LCCOMB_X30_Y30_N5 -to PUF_GEN|BIT[12]|inst|n0b
+set_location_assignment LCCOMB_X30_Y30_N6 -to PUF_GEN|BIT[12]|inst|n1b
+set_location_assignment LCCOMB_X30_Y30_N7 -to PUF_GEN|BIT[12]|inst|n2b
+set_location_assignment LCCOMB_X30_Y30_N8 -to PUF_GEN|BIT[12]|inst|n3b
+set_location_assignment LCCOMB_X30_Y30_N9 -to PUF_GEN|BIT[12]|inst|n4b
+set_location_assignment LCCOMB_X35_Y25_N0 -to PUF_GEN|BIT[13]|inst|n0a
+set_location_assignment LCCOMB_X35_Y25_N1 -to PUF_GEN|BIT[13]|inst|n1a
+set_location_assignment LCCOMB_X35_Y25_N2 -to PUF_GEN|BIT[13]|inst|n2a
+set_location_assignment LCCOMB_X35_Y25_N3 -to PUF_GEN|BIT[13]|inst|n3a
+set_location_assignment LCCOMB_X35_Y25_N4 -to PUF_GEN|BIT[13]|inst|n4a
+set_location_assignment LCCOMB_X35_Y25_N5 -to PUF_GEN|BIT[13]|inst|n0b
+set_location_assignment LCCOMB_X35_Y25_N6 -to PUF_GEN|BIT[13]|inst|n1b
+set_location_assignment LCCOMB_X35_Y25_N7 -to PUF_GEN|BIT[13]|inst|n2b
+set_location_assignment LCCOMB_X35_Y25_N8 -to PUF_GEN|BIT[13]|inst|n3b
+set_location_assignment LCCOMB_X35_Y25_N9 -to PUF_GEN|BIT[13]|inst|n4b
+set_location_assignment LCCOMB_X40_Y30_N0 -to PUF_GEN|BIT[14]|inst|n0a
+set_location_assignment LCCOMB_X40_Y30_N1 -to PUF_GEN|BIT[14]|inst|n1a
+set_location_assignment LCCOMB_X40_Y30_N2 -to PUF_GEN|BIT[14]|inst|n2a
+set_location_assignment LCCOMB_X40_Y30_N3 -to PUF_GEN|BIT[14]|inst|n3a
+set_location_assignment LCCOMB_X40_Y30_N4 -to PUF_GEN|BIT[14]|inst|n4a
+set_location_assignment LCCOMB_X40_Y30_N5 -to PUF_GEN|BIT[14]|inst|n0b
+set_location_assignment LCCOMB_X40_Y30_N6 -to PUF_GEN|BIT[14]|inst|n1b
+set_location_assignment LCCOMB_X40_Y30_N7 -to PUF_GEN|BIT[14]|inst|n2b
+set_location_assignment LCCOMB_X40_Y30_N8 -to PUF_GEN|BIT[14]|inst|n3b
+set_location_assignment LCCOMB_X40_Y30_N9 -to PUF_GEN|BIT[14]|inst|n4b
+set_location_assignment LCCOMB_X45_Y25_N0 -to PUF_GEN|BIT[15]|inst|n0a
+set_location_assignment LCCOMB_X45_Y25_N1 -to PUF_GEN|BIT[15]|inst|n1a
+set_location_assignment LCCOMB_X45_Y25_N2 -to PUF_GEN|BIT[15]|inst|n2a
+set_location_assignment LCCOMB_X45_Y25_N3 -to PUF_GEN|BIT[15]|inst|n3a
+set_location_assignment LCCOMB_X45_Y25_N4 -to PUF_GEN|BIT[15]|inst|n4a
+set_location_assignment LCCOMB_X45_Y25_N5 -to PUF_GEN|BIT[15]|inst|n0b
+set_location_assignment LCCOMB_X45_Y25_N6 -to PUF_GEN|BIT[15]|inst|n1b
+set_location_assignment LCCOMB_X45_Y25_N7 -to PUF_GEN|BIT[15]|inst|n2b
+set_location_assignment LCCOMB_X45_Y25_N8 -to PUF_GEN|BIT[15]|inst|n3b
+set_location_assignment LCCOMB_X45_Y25_N9 -to PUF_GEN|BIT[15]|inst|n4b

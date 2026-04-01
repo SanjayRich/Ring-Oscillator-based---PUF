@@ -1,0 +1,79 @@
+module auth_top (
+    input        CLOCK_50,
+    input        KEY0,
+    input  [3:0] SW,
+
+    output [6:0] HEX0, HEX1, HEX2, HEX3,
+    output [6:0] HEX4, HEX5, HEX6, HEX7,
+
+    output       LEDR0,
+    output       LEDG0,
+
+    output       LCD_EN,
+    output       LCD_RS,
+    output       LCD_RW,
+    output [7:0] LCD_DATA,
+    output       LCD_ON,
+    output       LCD_BLON
+);
+    wire rst         = ~KEY0;
+    wire puf_disable = SW[0];
+
+    wire [15:0] puf_id;
+    wire        puf_valid;
+    wire [15:0] xor_result;
+    wire [15:0] mux_out;
+
+    // ── 1. PUF Generator ──────────────────────────
+    puf_16bit PUF_GEN (
+        .clk      (CLOCK_50),
+        .rst      (rst),
+        .enable   (1'b1),
+        .puf_id   (puf_id),
+        .puf_valid(puf_valid)
+    );
+
+    // ── 2. Golden Hash — CHANGE AFTER ENROLLMENT ──
+    parameter [15:0] GOLDEN_HASH = 16'h5982;
+
+    // ── 3. XOR ────────────────────────────────────
+    assign xor_result = puf_id ^ GOLDEN_HASH;
+
+    // ── 4. MUX (puf_disable forces 0) ─────────────
+    assign mux_out = puf_disable ? 16'h0000 : xor_result;
+
+    // ── 5. Auth Logic ─────────────────────────────
+    wire auth_ok   = puf_valid & (mux_out == 16'h0000);
+    wire auth_fail = puf_valid & (mux_out != 16'h0000);
+
+    assign LEDR0 = auth_fail;
+    assign LEDG0 = auth_ok;
+
+    // ── 6. 7-Segment Displays ─────────────────────
+    hex_decoder H0 (.in(puf_id[3:0]),    .out(HEX0));
+    hex_decoder H1 (.in(puf_id[7:4]),    .out(HEX1));
+    hex_decoder H2 (.in(puf_id[11:8]),   .out(HEX2));
+    hex_decoder H3 (.in(puf_id[15:12]),  .out(HEX3));
+
+    hex_decoder H4 (.in(xor_result[3:0]),   .out(HEX4));
+    hex_decoder H5 (.in(xor_result[7:4]),   .out(HEX5));
+    hex_decoder H6 (.in(xor_result[11:8]),  .out(HEX6));
+    hex_decoder H7 (.in(xor_result[15:12]), .out(HEX7));
+
+    // ── 7. LCD ────────────────────────────────────
+    assign LCD_ON   = 1'b1;
+    assign LCD_BLON = 1'b1;
+
+    lcd_controller LCD (
+        .clk        (CLOCK_50),
+        .rst        (rst),
+        .auth_ok    (auth_ok),
+        .auth_fail  (auth_fail),
+        .puf_disable(puf_disable),
+        .LCD_EN     (LCD_EN),
+        .LCD_RS     (LCD_RS),
+        .LCD_RW     (LCD_RW),
+        .LCD_DATA   (LCD_DATA)
+    );
+
+endmodule

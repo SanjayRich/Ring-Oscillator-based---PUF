@@ -82,14 +82,8 @@ wire auth_fail = puf_valid & (xor_result != 16'h0000);
 Combinational 4-bit to 7-segment lookup table. Instantiated eight times to drive all HEX displays.
 
 ### `lcd_controller.v` — LCD State Machine
-Drives a **16×2 character LCD** over parallel interface. Displays one of four messages based on system state:
+Drives a **16×2 character LCD** over parallel interface. 
 
-| State | Line 1 | Line 2 |
-|---|---|---|
-| Initialising | `  PUF SECURITY  ` | ` GENERATING KEY ` |
-| Auth OK | `** AUTHENTICATED` | `  FPGA 1 OK     ` |
-| Auth FAIL | `!! AUTH FAILED!` | ` WRONG FPGA CHIP` |
-| PUF Disabled | ` PUF DISABLED   ` | `WELCOME: FPGA-2 ` |
 
 ### `ro_placement.tcl` — Chip Planner Script
 The **most critical** file for reliable PUF behaviour. Manually constrains every inverter in all 16 RO pairs to specific Logic Element (LE) slots on the EP4CE115 fabric:
